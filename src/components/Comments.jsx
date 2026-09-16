@@ -6,17 +6,23 @@ export default function Comments({ slug, title }) {
   useEffect(() => {
     if (!slug) return;
 
-    const script = document.createElement("script");
-    script.src = "https://cusdis.com/js/cusdis.es.js";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+    const SCRIPT_ID = "cusdis-embed-script";
+    let script = document.getElementById(SCRIPT_ID);
 
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
+    if (!script) {
+      script = document.createElement("script");
+      script.id = SCRIPT_ID;
+      script.src = "https://cusdis.com/js/cusdis.es.js";
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    } else if (window.renderCusdis) {
+      // Safely re-render widget on client-side route changes
+      const threadContainer = document.getElementById("cusdis_thread");
+      if (threadContainer) {
+        window.renderCusdis(threadContainer);
       }
-    };
+    }
   }, [slug]);
 
   if (!slug) return null;
