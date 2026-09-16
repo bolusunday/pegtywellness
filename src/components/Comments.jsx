@@ -13,9 +13,9 @@ export default function Comments({ slug }) {
       <Giscus
         id="comments"
         repo="bolusunday/pegtywellness"
-        repoId="PASTE_YOUR_REPO_ID_HERE"
+        repoId="R_kgDOUOaF1w"
         category="General"
-        categoryId="PASTE_YOUR_CATEGORY_ID_HERE"
+        categoryId="DIC_kwDOUOaF184DFGes"
         mapping="pathname"
         reactionsEnabled="1"
         emitMetadata="0"
