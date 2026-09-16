@@ -6,7 +6,6 @@ export default function Comments({ slug, title }) {
   useEffect(() => {
     if (!slug) return;
 
-    // Inject Cusdis script natively
     const script = document.createElement("script");
     script.src = "https://cusdis.com/js/cusdis.es.js";
     script.async = true;
@@ -29,7 +28,7 @@ export default function Comments({ slug, title }) {
       </h3>
       <div
         id="cusdis_thread"
-        data-host="https://cusdis.com"
+        data-host="https://pegtywellness.vercel.app/api/cusdis"
         data-app-id="d8065090-38fc-41dc-b2bf-f49461f29f5e"
         data-page-id={slug}
         data-page-title={title}
