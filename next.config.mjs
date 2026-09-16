@@ -3,8 +3,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/cusdis/:path*",
-        destination: "https://cusdis.com/api/:path*",
+        source: "/cusdis-proxy/:path*",
+        destination: "https://cusdis.com/:path*",
       },
     ];
   },
