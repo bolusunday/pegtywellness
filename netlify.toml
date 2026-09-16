@@ -13,3 +13,9 @@
   to = "https://cusdis.com/:splat"
   status = 200
   force = true
+
+[[headers]]
+  for = "/cusdis-proxy/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"

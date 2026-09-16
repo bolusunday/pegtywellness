@@ -28,7 +28,7 @@ export default function Comments({ slug, title }) {
       </h3>
       <div
         id="cusdis_thread"
-        data-host="https://pegtywellness.netlify.app/cusdis-proxy"
+        data-host="/cusdis-proxy"
         data-app-id="d8065090-38fc-41dc-b2bf-f49461f29f5e"
         data-page-id={slug}
         data-page-title={title}
