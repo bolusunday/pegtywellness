@@ -6,25 +6,24 @@ export default function Comments({ slug, title }) {
   useEffect(() => {
     if (!slug) return;
 
-    // Check if Cusdis script is already present on the page
-    const existingScript = document.querySelector(
-      'script[src="https://cusdis.com/js/cusdis.es.js"]',
-    );
+    // Inject Cusdis script natively
+    const script = document.createElement("script");
+    script.src = "https://cusdis.com/js/cusdis.es.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
 
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "https://cusdis.com/js/cusdis.es.js";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    } else if (window.CUSDIS) {
-      // Re-render comments if switching posts on client-side routing
-      window.CUSDIS.initial();
-    }
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
   }, [slug]);
 
+  if (!slug) return null;
+
   return (
-    <div className="mt-16 pt-10 border-t border-charcoal/15">
+    <div className="mt-16 pt-10 border-t border-charcoal/15 max-w-4xl mx-auto px-6">
       <h3 className="text-2xl font-serif font-bold text-charcoal mb-6">
         Comments
       </h3>
