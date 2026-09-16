@@ -28,11 +28,11 @@ export default function Comments({ slug, title }) {
       </h3>
       <div
         id="cusdis_thread"
-        data-host="https://pegtywellness.vercel.app/cusdis-proxy"
+        data-host="https://pegtywellness.netlify.app/cusdis-proxy"
         data-app-id="d8065090-38fc-41dc-b2bf-f49461f29f5e"
         data-page-id={slug}
         data-page-title={title}
-        data-page-url={`https://pegtywellness.vercel.app/blog/${slug}`}
+        data-page-url={`https://pegtywellness.netlify.app/blog/${slug}`}
       />
     </div>
   );
