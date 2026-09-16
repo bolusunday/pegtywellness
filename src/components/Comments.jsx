@@ -20,7 +20,7 @@ export default function Comments({ slug }) {
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
-        theme="light"
+        theme="noborder_gray"
         lang="en"
         loading="lazy"
       />
