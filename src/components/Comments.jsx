@@ -20,7 +20,7 @@ export default function Comments({ slug }) {
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
-        theme="preferred_color_scheme"
+        theme="https://pegtywellness.netlify.app/giscus-theme.css"
         lang="en"
         loading="lazy"
       />

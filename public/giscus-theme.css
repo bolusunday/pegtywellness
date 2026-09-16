@@ -1,0 +1,21 @@
+main {
+  /* Comment Box Backgrounds */
+  --color-canvas-default: transparent;
+  --color-canvas-subtle: #f9f9fb;
+
+  /* Text Colors */
+  --color-fg-default: #2d2d2d;
+  --color-fg-muted: #666666;
+
+  /* Borders & Dividers */
+  --color-border-default: rgba(45, 45, 45, 0.15);
+  --color-border-muted: rgba(45, 45, 45, 0.08);
+
+  /* Brand Accent Color (Buttons, Active States, Links) */
+  --color-accent-fg: #2d2d2d;
+  --color-accent-emphasis: #1a1a1a;
+
+  /* Reaction Box & Inputs */
+  --color-btn-bg: #ffffff;
+  --color-btn-border: rgba(45, 45, 45, 0.15);
+}
