@@ -9,6 +9,10 @@ export async function POST(req) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
 
+    // Determine target site URL dynamically or default to Netlify
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL || "https://pegtywellness.netlify.app";
+
     // Optional: Send lead data to Formspree
     if (process.env.FORMSPREE_ID) {
       await fetch(`https://formspree.io/f/${process.env.FORMSPREE_ID}`, {
@@ -39,7 +43,7 @@ export async function POST(req) {
               Every week, we share actionable insights on holistic health, ergonomics, mindful routines, and natural living.
             </p>
             <div style="margin: 30px 0; text-align: center;">
-              <a href="https://pegtywellness.vercel.app/#latest-posts" 
+              <a href="${siteUrl}/#latest-posts" 
                  style="background-color: #6B8E23; color: #ffffff; padding: 12px 24px; border-radius: 9999px; text-decoration: none; font-weight: bold; font-family: sans-serif;">
                 Explore Latest Musings
               </a>
