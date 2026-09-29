@@ -12,13 +12,18 @@ export default function NewsletterSignup() {
     setStatus("loading");
 
     try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      // Replaced /api/newsletter with Formspree endpoint for static hosting
+      const response = await fetch(
+        `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json", // Ensures Formspree returns JSON instead of redirecting
+          },
+          body: JSON.stringify({ email }),
         },
-        body: JSON.stringify({ email }),
-      });
+      );
 
       if (response.ok) {
         setStatus("success");
@@ -38,8 +43,8 @@ export default function NewsletterSignup() {
           Get Your Free Daily Wellness Guide
         </h2>
         <p className="text-charcoal/70">
-          Join our community and receive periodically insights on holistic
-          health, mindfulness, and natural living directly in your inbox.
+          Join our community and receive periodic insights on holistic health,
+          mindfulness, and natural living directly in your inbox.
         </p>
 
         {status === "success" ? (
@@ -61,7 +66,7 @@ export default function NewsletterSignup() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="contact@pegty.com"
                 required
-                className="w-full bg-white pl-12 pr-4 py-3 rounded-full border border-charcoal/10 focus:outline-hidden focus:border-sage focus:ring-1 focus:ring-sage transition-all"
+                className="w-full bg-white pl-12 pr-4 py-3 rounded-full border border-charcoal/10 focus:outline-hidden focus:border-sage focus:ring-1 focus:ring-sage transition-all text-charcoal"
               />
             </div>
 
