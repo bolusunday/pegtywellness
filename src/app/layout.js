@@ -21,21 +21,35 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Force-intercepts and drops Next.js background hover fetches before they reach Hostinger */}
+        {/* Forcefully terminates BOTH API fetch routes and native HTML link-tag prefetching blocks */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
+                // 1. Intercept standard API network fetch triggers
                 const originalFetch = window.fetch;
                 window.fetch = function (url, options) {
                   if (options && options.headers && (options.headers['X-NextJS-Data'] || options.method === 'HEAD')) {
-                    // Filter out prefetch calls to your directories safely
                     if (typeof url === 'string' && (url.includes('/category/') || url.includes('/about') || url.includes('/blog/'))) {
-                      return Promise.reject(new Error('Prefetch intercepted for Hostinger architecture compatibility'));
+                      return Promise.reject(new Error('Prefetch blocked for Hostinger compatibility'));
                     }
                   }
                   return originalFetch.apply(this, arguments);
                 };
+
+                // 2. Intercept and destroy physical <link rel="prefetch"> tags dynamically injected by Next.js
+                const observer = new MutationObserver((mutations) => {
+                  mutations.forEach((mutation) => {
+                    mutation.addedNodes.forEach((node) => {
+                      if (node.tagName === 'LINK' && node.rel === 'prefetch') {
+                        node.remove(); // Drops the element locally before the browser can issue a network request
+                      }
+                    });
+                  });
+                });
+                
+                // Monitor document changes early during DOM assembly
+                observer.observe(document.documentElement, { childList: true, subtree: true });
               })();
             `,
           }}
