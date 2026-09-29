@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Search, Menu, X } from "lucide-react";
-
+import Image from "next/image";
 const navLinks = [
   { name: "Workstation Wellness", href: "/category/workstation-wellness" },
   { name: "Nighttime Optimization", href: "/category/nighttime-optimization" },
@@ -24,10 +24,16 @@ export default function Navbar() {
         <Link
           href="/"
           prefetch={false}
-          className="group flex items-center gap-1 font-serif text-2xl lg:text-3xl text-charcoal font-bold tracking-tight whitespace-nowrap"
+          className="group flex items-center gap-2 font-serif text-2xl lg:text-3xl text-charcoal font-bold tracking-tight whitespace-nowrap"
         >
+          <Image
+            src="/pegty-wellness-logo.png"
+            alt="Pegty Wellness"
+            width={42}
+            height={42}
+            className="h-9 w-9 lg:h-11 lg:w-11 object-contain"
+          />
           <span>Pegty Wellness</span>
-          <span className="w-2 h-2 rounded-full bg-sage group-hover:bg-terracotta transition-colors duration-300" />
         </Link>
 
         {/* Desktop Navigation */}

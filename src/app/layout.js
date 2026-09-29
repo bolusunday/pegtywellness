@@ -14,7 +14,7 @@ export const metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || "https://pegtywellness.com",
   ),
   title: "Pegty Wellness",
-  description: "A blog dedicated to balanced living and holistic health.",
+  description: "Cultivating Peace in a Busy World",
 };
 
 export default function RootLayout({ children }) {
