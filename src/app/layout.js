@@ -20,6 +20,27 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Force-intercepts and drops Next.js background hover fetches before they reach Hostinger */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const originalFetch = window.fetch;
+                window.fetch = function (url, options) {
+                  if (options && options.headers && (options.headers['X-NextJS-Data'] || options.method === 'HEAD')) {
+                    // Filter out prefetch calls to your directories safely
+                    if (typeof url === 'string' && (url.includes('/category/') || url.includes('/about') || url.includes('/blog/'))) {
+                      return Promise.reject(new Error('Prefetch intercepted for Hostinger architecture compatibility'));
+                    }
+                  }
+                  return originalFetch.apply(this, arguments);
+                };
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} ${playfair.variable} bg-oat text-charcoal font-sans antialiased flex flex-col min-h-screen`}
       >
