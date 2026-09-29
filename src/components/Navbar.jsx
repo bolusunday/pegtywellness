@@ -27,7 +27,7 @@ export default function Navbar() {
           className="group flex items-center gap-2 font-serif text-2xl lg:text-3xl text-charcoal font-bold tracking-tight whitespace-nowrap"
         >
           <Image
-            src="/pegty-wellness-logo.png"
+            src="./pegty-wellness-logo.png"
             alt="Pegty Wellness"
             width={42}
             height={42}
