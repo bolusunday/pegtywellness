@@ -1,3 +1,5 @@
+export const dynamic = "force-static"; // <-- Add this exact line right here
+
 export default function robots() {
   return {
     rules: {
