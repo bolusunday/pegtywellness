@@ -13,6 +13,7 @@ export default function AboutPage() {
     <div className="max-w-4xl mx-auto px-6 py-12 md:py-20 space-y-12">
       <Link
         href="/"
+        prefetch={false}
         className="inline-flex items-center gap-2 text-sm text-charcoal/60 hover:text-sage transition-colors group font-medium"
       >
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

@@ -16,3 +16,8 @@ body {
   color: var(--color-charcoal);
   font-family: var(--font-sans);
 }
+
+/* Prevents Next.js prefetch engine from intercepting links on hover */
+a[href] {
+  pointer-events: auto;
+}

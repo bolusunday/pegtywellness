@@ -44,6 +44,7 @@ export default async function HomePage() {
             <Link
               key={cat.name}
               href={cat.href}
+              prefetch={false}
               className="flex items-center gap-2 bg-white px-6 py-2.5 rounded-full shadow-xs text-charcoal hover:text-sage hover:shadow-md hover:-translate-y-0.5 transition-all border border-sage/15 text-sm font-medium"
             >
               <IconComponent className="w-4 h-4 text-sage" />

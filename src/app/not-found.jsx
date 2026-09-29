@@ -9,6 +9,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
+        prefetch={false}
         className="bg-sage text-white px-6 py-3 rounded-full hover:bg-sage/90 transition-colors font-medium text-sm"
       >
         Return to Home

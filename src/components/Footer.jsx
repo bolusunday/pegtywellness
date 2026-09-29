@@ -12,6 +12,7 @@ export default function Footer() {
           <div className="space-y-6">
             <Link
               href="/"
+              prefetch={false}
               className="font-serif text-3xl text-charcoal font-bold block mb-4"
             >
               Pegty Wellness<span className="text-sage">.</span>
@@ -44,16 +45,32 @@ export default function Footer() {
 
           {/* Links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm text-charcoal/70 font-medium">
-            <Link href="/about" className="hover:text-sage transition-colors">
+            <Link
+              href="/about"
+              prefetch={false}
+              className="hover:text-sage transition-colors"
+            >
               Our Story
             </Link>
-            <Link href="/contact" className="hover:text-sage transition-colors">
+            <Link
+              href="/contact"
+              prefetch={false}
+              className="hover:text-sage transition-colors"
+            >
               Contact
             </Link>
-            <Link href="/privacy" className="hover:text-sage transition-colors">
+            <Link
+              href="/privacy"
+              prefetch={false}
+              className="hover:text-sage transition-colors"
+            >
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-sage transition-colors">
+            <Link
+              href="/terms"
+              prefetch={false}
+              className="hover:text-sage transition-colors"
+            >
               Terms of Service
             </Link>
           </div>

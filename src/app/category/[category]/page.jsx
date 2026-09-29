@@ -46,6 +46,7 @@ export default async function CategoryPage({ params }) {
       {/* Back to Home Link */}
       <Link
         href="/"
+        prefetch={false}
         className="inline-flex items-center gap-2 text-sm text-charcoal/60 hover:text-sage transition-colors mb-8 group font-medium"
       >
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

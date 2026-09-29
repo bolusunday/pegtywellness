@@ -23,6 +23,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
+          prefetch={false}
           className="group flex items-center gap-1 font-serif text-2xl lg:text-3xl text-charcoal font-bold tracking-tight whitespace-nowrap"
         >
           <span>Pegty Wellness</span>
