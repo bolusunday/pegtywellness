@@ -8,7 +8,7 @@ export default function PostCard({ post, priority = false }) {
   if (!post) return null;
 
   // Strips any .mdx/.md extension to ensure clean dynamic routing
-  const cleanSlug = post.slug ? post.slug.replace(/\.mdx?$/, "") : "";
+  const cleanSlug = post.slug ? post.slug.replace(/\.mdx?\$/, "") : "";
   const postUrl = `/blog/${cleanSlug}`;
 
   // Supports both 'description' and 'snippet' frontmatter fields
@@ -25,6 +25,7 @@ export default function PostCard({ post, priority = false }) {
       {/* Cover Image Container */}
       <Link
         href={postUrl}
+        prefetch={false} // <-- Added here to stop post image prefetch 403 errors
         className="relative h-64 w-full rounded-2xl overflow-hidden block bg-sage/10"
       >
         {post.thumbnail ? (
@@ -60,7 +61,12 @@ export default function PostCard({ post, priority = false }) {
         </div>
 
         <h3 className="text-2xl font-serif text-charcoal group-hover:text-sage transition-colors">
-          <Link href={postUrl}>{post.title}</Link>
+          <Link
+            href={postUrl}
+            prefetch={false} // <-- Added here to stop post title prefetch 403 errors
+          >
+            {post.title}
+          </Link>
         </h3>
 
         {excerpt && (

@@ -35,6 +35,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
+              prefetch={false} // <-- Added right here to stop 403 prefetch errors
               className="inline-block transition-all duration-300 hover:text-sage hover:scale-110 origin-center transform"
             >
               {link.name}
@@ -90,6 +91,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
+                prefetch={false} // <-- Added right here for mobile views as well
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-lg font-serif text-charcoal/90 hover:text-sage hover:translate-x-2 transition-all duration-200"
               >
