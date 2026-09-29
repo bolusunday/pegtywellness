@@ -11,7 +11,7 @@ export async function POST(req) {
 
     // Determine target site URL dynamically or default to Netlify
     const siteUrl =
-      process.env.NEXT_PUBLIC_SITE_URL || "https://pegtywellness.netlify.app";
+      process.env.NEXT_PUBLIC_SITE_URL || "https://pegtywellness.com";
 
     // Optional: Send lead data to Formspree
     if (process.env.FORMSPREE_ID) {
