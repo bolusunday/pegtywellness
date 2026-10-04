@@ -42,7 +42,6 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              prefetch={false}
               className="inline-block transition-all duration-300 hover:text-sage whitespace-nowrap"
             >
               {link.name}

@@ -99,7 +99,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${post.title} | Pegty Wellness`,
-    description: post.description || post.snippet || "Aura Wellness post",
+    description: post.description || post.snippet || "Pegty Wellness post",
     openGraph: {
       title: post.title,
       description: post.description || post.snippet,
