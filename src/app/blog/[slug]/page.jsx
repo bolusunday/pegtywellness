@@ -97,13 +97,42 @@ export async function generateMetadata({ params }) {
     return { title: "Post Not Found | Pegty Wellness" };
   }
 
+  const postUrl = `https://pegtywellness.com/blog/${cleanSlug}`;
+  const description = post.description || post.snippet || "Pegty Wellness post";
+
+  // Convert relative thumbnail paths to absolute URLs required by social platforms
+  const imageUrl = post.thumbnail
+    ? post.thumbnail.startsWith("http")
+      ? post.thumbnail
+      : `https://pegtywellness.com${post.thumbnail.startsWith("/") ? "" : "/"}${post.thumbnail}`
+    : "https://pegtywellness.com/favicon.ico";
+
   return {
     title: `${post.title} | Pegty Wellness`,
-    description: post.description || post.snippet || "Pegty Wellness post",
+    description: description,
+    alternates: {
+      canonical: postUrl,
+    },
     openGraph: {
       title: post.title,
-      description: post.description || post.snippet,
-      images: post.thumbnail ? [{ url: post.thumbnail }] : [],
+      description: description,
+      url: postUrl,
+      siteName: "Pegty Wellness",
+      type: "article",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: description,
+      images: [imageUrl],
     },
   };
 }

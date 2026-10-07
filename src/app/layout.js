@@ -13,8 +13,30 @@ export const metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://pegtywellness.com",
   ),
-  title: "Pegty Wellness",
-  description: "Cultivating Peace in a Busy World",
+  title: {
+    default: "Pegty Wellness | Cultivating Peace in a Busy World",
+    template: "%s | Pegty Wellness",
+  },
+  description:
+    "Cultivating Peace in a Busy World. Discover holistic health, somatic movement, ergonomics, and natural wellness tips.",
+  openGraph: {
+    title: "Pegty Wellness | Cultivating Peace in a Busy World",
+    description:
+      "Cultivating Peace in a Busy World. Discover holistic health, somatic movement, ergonomics, and natural wellness tips.",
+    url: "https://pegtywellness.com",
+    siteName: "Pegty Wellness",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pegty Wellness",
+    description: "Cultivating Peace in a Busy World",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
