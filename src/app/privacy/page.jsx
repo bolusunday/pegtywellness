@@ -41,9 +41,9 @@ export default function PrivacyPage() {
           </h2>
           <p>
             At <strong>Pegty Wellness</strong> (accessible via
-            pegtywellness.vercel.app), the privacy of our visitors is a top
-            priority. This Privacy Policy outlines the types of information
-            collected and recorded by Pegty Wellness and how it is used.
+            pegtywellness.com), the privacy of our visitors is a top priority.
+            This Privacy Policy outlines the types of information collected and
+            recorded by Pegty Wellness and how it is used.
           </p>
         </section>
 

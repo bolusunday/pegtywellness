@@ -9,7 +9,7 @@ export default function ShareButtons({ title, slug }) {
   const postUrl =
     typeof window !== "undefined"
       ? window.location.href
-      : `https://pegtywellness.vercel.app/blog/${slug}`;
+      : `https://pegtywellness.com/blog/${slug}`;
 
   const encodedUrl = encodeURIComponent(postUrl);
   const encodedTitle = encodeURIComponent(

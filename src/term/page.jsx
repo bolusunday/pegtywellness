@@ -41,9 +41,9 @@ export default function TermsPage() {
           </h2>
           <p>
             By accessing or using <strong>Pegty Wellness</strong> (accessible at
-            pegtywellness.vercel.app), you agree to be bound by these Terms of
-            Service and all applicable laws. If you do not agree with any part
-            of these terms, you should discontinue use of the site immediately.
+            pegtywellness.com), you agree to be bound by these Terms of Service
+            and all applicable laws. If you do not agree with any part of these
+            terms, you should discontinue use of the site immediately.
           </p>
         </section>
 
