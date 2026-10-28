@@ -10,8 +10,8 @@ const navLinks = [
   { name: "Body & Motion", href: "/category/body-motion" },
   { name: "Mind & Acoustics", href: "/category/mind-acoustics" },
   { name: "Nutrition & Health", href: "/category/nutrition-health" },
-  { name: "About", href: "/about" },
   { name: "Men's Health & Longevity", href: "/category/mens-health" },
+  { name: "About", href: "/about" },
 ];
 
 export default function Navbar() {
