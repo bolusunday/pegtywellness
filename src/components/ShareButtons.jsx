@@ -6,7 +6,7 @@ import { Link as LinkIcon, Check } from "lucide-react";
 export default function ShareButtons({ title, slug }) {
   const [copied, setCopied] = useState(false);
 
-  // Always use the clean production canonical URL
+  // Clean canonical production URL
   const postUrl = `https://pegtywellness.com/blog/${slug}`;
 
   const encodedUrl = encodeURIComponent(postUrl);
@@ -44,6 +44,20 @@ export default function ShareButtons({ title, slug }) {
     },
   ];
 
+  const handleShareClick = (e, href) => {
+    e.preventDefault();
+    const width = 600;
+    const height = 550;
+    const left = window.innerWidth / 2 - width / 2;
+    const top = window.innerHeight / 2 - height / 2;
+
+    window.open(
+      href,
+      "share-dialog",
+      `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`,
+    );
+  };
+
   const handleCopyLink = async () => {
     try {
       await navigator.clipboard.writeText(postUrl);
@@ -64,10 +78,11 @@ export default function ShareButtons({ title, slug }) {
           <a
             key={platform.name}
             href={platform.href}
+            onClick={(e) => handleShareClick(e, platform.href)}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Share on ${platform.name}`}
-            className="p-2.5 rounded-full bg-sage/10 text-charcoal/70 hover:bg-sage hover:text-white transition-all duration-200 flex items-center justify-center"
+            className="p-2.5 rounded-full bg-sage/10 text-charcoal/70 hover:bg-sage hover:text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
           >
             {platform.icon}
           </a>
