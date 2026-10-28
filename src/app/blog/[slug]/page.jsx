@@ -97,7 +97,7 @@ export async function generateMetadata({ params }) {
     return { title: "Post Not Found | Pegty Wellness" };
   }
 
-  const postUrl = `https://pegtywellness.com/blog/${cleanSlug}`;
+  const postUrl = `https://pegtywellness.com/blog/${cleanSlug}/`;
   const description = post.description || post.snippet || "Pegty Wellness post";
 
   // Convert relative thumbnail paths to absolute URLs required by social platforms
