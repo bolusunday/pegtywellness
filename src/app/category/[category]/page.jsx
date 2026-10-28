@@ -10,6 +10,7 @@ const categoryMap = {
   "nighttime-optimization": "Nighttime Optimization",
   "body-motion": "Body & Motion",
   "mind-acoustics": "Mind & Acoustics",
+  "mens-health": "Mens's Health & Longevity",
 };
 
 function formatCategoryTitle(category) {

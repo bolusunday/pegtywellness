@@ -11,6 +11,7 @@ const navLinks = [
   { name: "Mind & Acoustics", href: "/category/mind-acoustics" },
   { name: "Nutrition & Health", href: "/category/nutrition-health" },
   { name: "About", href: "/about" },
+  { name: "Men's Health & Longevity", href: "/category/mens-health" },
 ];
 
 export default function Navbar() {
