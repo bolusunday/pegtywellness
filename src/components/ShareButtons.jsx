@@ -6,10 +6,8 @@ import { Link as LinkIcon, Check } from "lucide-react";
 export default function ShareButtons({ title, slug }) {
   const [copied, setCopied] = useState(false);
 
-  const postUrl =
-    typeof window !== "undefined"
-      ? window.location.href
-      : `https://pegtywellness.com/blog/${slug}`;
+  // Always use the clean production canonical URL
+  const postUrl = `https://pegtywellness.com/blog/${slug}`;
 
   const encodedUrl = encodeURIComponent(postUrl);
   const encodedTitle = encodeURIComponent(
