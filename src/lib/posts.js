@@ -4,6 +4,16 @@ import matter from "gray-matter";
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
+// Map URL slugs to exact frontmatter category strings
+const categoryMap = {
+  "nutrition-health": "Nutrition & Health",
+  "workstation-wellness": "Workstation Wellness",
+  "nighttime-optimization": "Nighttime Optimization",
+  "body-motion": "Body & Motion",
+  "mind-acoustics": "Mind & Acoustics",
+  "mens-health": "Men's Health & Longevity",
+};
+
 export function getAllPosts() {
   if (!fs.existsSync(postsDirectory)) return [];
 
@@ -28,8 +38,12 @@ export function getAllPosts() {
 }
 
 function normalizeCategory(str = "") {
-  return str
+  // Resolve slug alias from categoryMap if present
+  const resolvedStr = categoryMap[str] || str;
+
+  return resolvedStr
     .toLowerCase()
+    .replace(/['’]/g, "") // Strips apostrophes ("men's" -> "mens")
     .replace(/&/g, "")
     .replace(/\band\b/g, "")
     .replace(/[^a-z0-9]+/g, "-")
@@ -42,7 +56,14 @@ export function getPostsByCategory(categorySlug) {
 
   return allPosts.filter((post) => {
     if (!post.category) return false;
-    return normalizeCategory(post.category) === targetSlug;
+
+    const postNormalized = normalizeCategory(post.category);
+
+    return (
+      postNormalized === targetSlug ||
+      postNormalized.startsWith(targetSlug) ||
+      targetSlug.startsWith(postNormalized)
+    );
   });
 }
 
@@ -51,7 +72,6 @@ export function getPostBySlug(slug) {
 
   const cleanSlug = slug.replace(/\.mdx?$/, "");
 
-  // Checks for both .mdx and .md file extensions
   let fullPath = path.join(postsDirectory, `${cleanSlug}.mdx`);
   if (!fs.existsSync(fullPath)) {
     fullPath = path.join(postsDirectory, `${cleanSlug}.md`);

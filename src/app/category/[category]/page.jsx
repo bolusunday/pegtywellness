@@ -40,7 +40,7 @@ export async function generateStaticParams() {
 export default async function CategoryPage({ params }) {
   const { category } = await params;
   const categoryTitle = formatCategoryTitle(category);
-  const posts = getPostsByCategory(categoryTittle);
+  const posts = getPostsByCategory(categoryTitle);
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 md:py-20">
