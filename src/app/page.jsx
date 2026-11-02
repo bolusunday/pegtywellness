@@ -2,7 +2,14 @@ import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import PostCard from "@/components/PostCard";
 import { getAllPosts } from "@/lib/posts";
-import { Monitor, Moon, Activity, Headphones, Apple } from "lucide-react";
+import {
+  Monitor,
+  Moon,
+  Activity,
+  Headphones,
+  Apple,
+  Dumbbell,
+} from "lucide-react";
 
 const categories = [
   {
@@ -25,6 +32,16 @@ const categories = [
     name: "Mind & Acoustics",
     href: "/category/mind-acoustics",
     icon: Headphones,
+  },
+  {
+    name: "Nutrition & Health",
+    href: "/category/nutrition-health",
+    icon: Apple,
+  },
+  {
+    name: "Men's Health & Longevity",
+    href: "/category/mens-health",
+    icon: Dumbbell,
   },
 ];
 
