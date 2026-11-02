@@ -13,11 +13,6 @@ import {
 
 const categories = [
   {
-    name: "Nutrition & Health",
-    href: "/category/nutrition-health",
-    icon: Apple,
-  },
-  {
     name: "Workstation Wellness",
     href: "/category/workstation-wellness",
     icon: Monitor,
